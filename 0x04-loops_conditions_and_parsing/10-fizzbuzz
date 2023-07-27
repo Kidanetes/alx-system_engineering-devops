@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#if a number is multiple of 3 and 5, print fizzbuzz
+#if a number is a multiple of 3, print fizz
+#if a number is a multiple of 5, print buzz
+#otherwise print the number itself
 a=1
 while [ $a -le 100 ]
 do
