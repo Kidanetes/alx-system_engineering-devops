@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#print Best School using while loop
+#for the 9th iteration print Hi
+a=0
+while [ $a -lt 10 ]
+do
+	(( a = a + 1 ))
+	if [ $a -eq 9 ]
+	then
+		echo "Hi"
+		continue
+	fi
+	echo "Best School"
+	#(( a = a + 1 ))
+	#let "a = a + 1"
+done
