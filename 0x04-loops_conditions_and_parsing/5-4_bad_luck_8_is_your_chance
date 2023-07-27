@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#print Best School using while loop
+#for the 4th iteration print Bad luck
+#for the 8th iteration print good luck
+a=0
+while [ $a -lt 10 ]
+do
+	(( a = a + 1 ))
+	if [ $a -eq 4 ]
+	then
+		echo "bad luck"
+	elif [ $a -eq 8 ]
+	then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+done
