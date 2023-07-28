@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#print a message untill the process
+#inturupted y keyboard interupt
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
