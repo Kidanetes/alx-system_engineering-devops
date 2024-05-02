@@ -1,6 +1,6 @@
 # create a file
 
-file {'school':
+file { 'school':
   path    => '/tmp',
   content => 'I love Puppet',
   mode    => '0744',
