@@ -10,9 +10,9 @@ echo "
    bind *:80
    mode http
    balance roundrobin
-   option httpclose
+   #option httpclose
    option forwardfor
    server 211037-web-01 52.86.189.212:80 check
    server 211037-web-02 52.201.146.212:80 check
 " >> /etc/haproxy/haproxy.cfg
-service haproxy start
+service haproxy restart
