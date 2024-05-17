@@ -6,13 +6,14 @@ apt-get -y install haproxy=2.0.\*
 
 echo "ENABLED=1" > /etc/default/haproxy
 echo "
-   listen load_balancer
-   bind *:80
-   mode http
-   balance roundrobin
-   #option httpclose
-   option forwardfor
-   server 211037-web-01 52.86.189.212:80 check
-   server 211037-web-02 52.201.146.212:80 check
+   frontend haproxy_balancer
+      bind *:80
+      mode http
+      default_backend webservers
+
+   backend webservers
+      balance roundrobin
+      server 211037-web-01 52.86.189.212:80 check
+      server 211037-web-02 52.201.146.212:80 check
 " >> /etc/haproxy/haproxy.cfg
 service haproxy restart
