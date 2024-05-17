@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#configuring a server and adding header file
+
+apt-get update
+apt-get -y install nginx
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" >  /var/www/html/404.html
+
+echo 'server {
+         listen 80 default_server;
+         rewrite ^/redirect_me https://www.youtube.com/ permanent;
+         listen [::]:80 default_server;
+        add_header X-Served-By $HOSTNAME;
+         root /var/www/html;
+ 
+         # Add index.php to the list if you are using PHP
+         index index.html index.htm index.nginx-debian.html;
+         server_name _;
+         error_page 404 /404.html;
+         location / {
+                 # First attempt to serve request as file, then
+                 # as directory, then fall back to displaying a 404.
+                 try_files $uri $uri/ =404;
+       }
+}' > tmp
+cp tmp  /etc/nginx/sites-available/default
+sudo service nginx restart
