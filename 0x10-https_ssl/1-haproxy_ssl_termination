@@ -33,16 +33,15 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend kidanemaryam.tech-http-frontend
+frontend www-http
         bind *:80
         http-request set-header X-Forwarded-Proto http
-        default_backend kidanemaryam.tech-backend
-frontend kidanemaryam.tech-https-frontend
+        default_backend webservers
+frontend www-https
         bind *:443 ssl crt /etc/ssl/kidanemaryam.tech.pem
         http-request set-header X-Forwarded-Proto https
-        default_backend kidanemaryam.tech-backend
-
-backend kidanemaryam.tech-backend
+        default_backend webservers
+backend webservers
     balance roundrobin
     server 211037-web-01 54.152.218.147:80 check
     server 211037-web-02 54.87.157.200:80 check
