@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Exports to-do list to CSV
-Format must be: "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
-File name must be: USER_ID.csv"""
+""" Exports to-do list to CSV """
 import csv
 import requests
 import sys
