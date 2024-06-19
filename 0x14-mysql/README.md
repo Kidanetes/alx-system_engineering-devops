@@ -1,2 +1,0 @@
-ALX sys devops
-mysql
