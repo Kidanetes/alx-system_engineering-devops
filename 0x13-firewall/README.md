@@ -1,2 +1,0 @@
-alx sys devops
-firewalls
